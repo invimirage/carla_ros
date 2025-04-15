@@ -17,6 +17,7 @@
 #include <QPushButton>
 #include <QTimer>
 #include <QVBoxLayout>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 
 #include <cstdio>
 #include <chrono>

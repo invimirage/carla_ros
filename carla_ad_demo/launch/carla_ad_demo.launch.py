@@ -50,7 +50,7 @@ def generate_launch_description():
         ),
         launch.actions.DeclareLaunchArgument(
             name='timeout',
-            default_value='10'
+            default_value='50'
         ),
         launch.actions.DeclareLaunchArgument(
             name='synchronous_mode_wait_for_vehicle_control_command',
@@ -74,7 +74,7 @@ def generate_launch_description():
         ),
         launch.actions.DeclareLaunchArgument(
             name='avoid_risk',
-            default_value='True'
+            default_value='False'
         ),
         launch.actions.DeclareLaunchArgument(
             name='sigterm_timeout',
@@ -126,6 +126,22 @@ def generate_launch_description():
             launch_arguments={
                 'role_name': launch.substitutions.LaunchConfiguration('role_name')
             }.items()
+        ),
+        launch_ros.actions.Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            output='screen',
+            remappings=[
+                (
+                    "carla/ego_vehicle/spectator_pose",
+                    "/carla/ego_vehicle/rgb_view/control/set_transform"
+                )
+            ],
+            arguments=[
+                '-d', os.path.join(get_package_share_directory('carla_ad_demo'), 'config/carla_ad_demo_ros2.rviz'),
+                '--ros-args', '--log-level', 'error'],
+            on_exit=launch.actions.Shutdown()
         )
     ])
     return ld

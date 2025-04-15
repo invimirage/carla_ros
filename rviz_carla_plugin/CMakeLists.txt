@@ -5,7 +5,9 @@ set(CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 14)
 
 find_package(ros_environment REQUIRED)
+
 set(ROS_VERSION $ENV{ROS_VERSION})
+find_package(tf2_geometry_msgs REQUIRED)
 
 if(${ROS_VERSION} EQUAL 1)
 
@@ -73,8 +75,8 @@ elseif(${ROS_VERSION} EQUAL 2)
   pluginlib_export_plugin_description_file(rviz_common
                                            plugin_description_ros2.xml)
 
-  ament_target_dependencies(rviz_carla_plugin rclcpp carla_msgs nav_msgs
-                            carla_ros_scenario_runner_types rviz_common)
+  ament_target_dependencies(rviz_carla_plugin rclcpp carla_msgs nav_msgs tf2 tf2_ros
+    tf2_geometry_msgs carla_ros_scenario_runner_types rviz_common)
 
   ament_export_libraries(${PROJECT_NAME})
 

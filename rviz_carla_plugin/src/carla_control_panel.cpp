@@ -18,6 +18,8 @@
 #include <QTimer>
 #include <QVBoxLayout>
 #include <cstdio>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+
 
 #include <carla_msgs/CarlaControl.h>
 #include <carla_ros_scenario_runner_types/ExecuteScenario.h>

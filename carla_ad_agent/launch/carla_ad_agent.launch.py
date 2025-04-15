@@ -52,7 +52,8 @@ def generate_launch_description():
                 {
                     'avoid_risk': launch.substitutions.LaunchConfiguration('avoid_risk')
                 }
-            ]
+            ],
+            arguments=['--ros-args', '--log-level', 'error']
         ),
         launch_ros.actions.Node(
             package='carla_ad_agent',
@@ -87,7 +88,8 @@ def generate_launch_description():
                 {
                     'control_time_step': launch.substitutions.LaunchConfiguration('control_time_step')
                 }
-            ]
+            ],
+            arguments=['--ros-args', '--log-level', 'error']
         )
     ])
     return ld

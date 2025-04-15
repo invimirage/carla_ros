@@ -410,7 +410,10 @@ def main(args=None):
             host=parameters['host'],
             port=parameters['port'])
         carla_client.set_timeout(parameters['timeout'])
-
+        world = carla_client.get_world()
+        version = carla_client.get_client_version()
+        print("Connected! Map is:", world.get_map().name)
+        print("Version is " + version)
         # check carla version
         dist = pkg_resources.get_distribution("carla")
         if LooseVersion(dist.version) != LooseVersion(CarlaRosBridge.CARLA_VERSION):

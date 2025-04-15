@@ -22,6 +22,22 @@
             "id": "map"
         },
         {
+            "type": "vehicle.audi.tt",
+            "id": "npc_vehicle",
+            "attributes": [
+                {
+                  "key": "role_name",
+                  "value": "npc_vehicle"
+                }
+            ],
+            "sensors": [
+              {
+                "type": "actor.pseudo.control",
+                "id": "control"
+              }
+            ]
+        },
+        {
             "type": "vehicle.tesla.model3",
             "id": "ego_vehicle",
             "sensors": 

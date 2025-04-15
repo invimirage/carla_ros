@@ -148,7 +148,7 @@ class CarlaToRosWaypointConverter(CompatibleNode):
 
     def reroute(self):
         """
-        Triggers a rerouting
+        Triggers a reroutingtopic_pub_target_speed-4
         """
         if self.ego_vehicle is None or self.goal is None:
             # no ego vehicle, remove route if published
